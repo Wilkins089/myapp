@@ -6,7 +6,7 @@ pipeline {
             branch "master"
             when {env.BRANCH == "master"}
             steps {
-                echo 'Deploying....'
+                echo 'Deploying....!!'
             }
         }
     }
