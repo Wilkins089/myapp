@@ -1,13 +1,13 @@
 pipeline {
     agent any
-
     stages {
-        stage('Deploy') {
-            branch "master"
-            when {env.BRANCH == "master"}
-            steps {
-                echo 'Deploying....!!'
+        stage('listing files') {
+            when{
+                branch 'master'
             }
-        }
+            steps {
+              sh 'ls'
+           }
+        }  
     }
 }
