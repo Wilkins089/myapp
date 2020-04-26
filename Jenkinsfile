@@ -2,19 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building' 
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing.....'
-            }
-        }
         stage('Deploy') {
+            branch "master"
+            when {env.BRANCH == "master"}
             steps {
-                echo 'Deploying...'
+                echo 'Deploying....'
             }
         }
     }
