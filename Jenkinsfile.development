@@ -1,10 +1,13 @@
 pipeline {
-    agent any
-    stages {
-        stage('listing files.....!!') {
-            steps {
-              sh 'ls'
-           }
-        }  
+     agent any
+     stages {
+         stage('S3download') {
+             steps {
+                 
+    withAWS(credentials:'hibooks-stage') {
+          s3Upload(bucket:"hibooks-files", path:'/var/lib/jenkins/workspace/Memod-editor', includePathPattern:'**/*.svg', workingDir:'dist')
+                }
+            }
+        }
     }
 }
