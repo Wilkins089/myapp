@@ -5,7 +5,7 @@ pipeline {
              steps {
                  
     withAWS(credentials:'hibooks-stage') {
-          s3Upload(bucket:"hibooks-files", path:'/var/lib/jenkins/workspace/Memod-editor', includePathPattern:'**/*.svg')
+          s3Upload(bucket:"hibooks-files", includePathPattern:'**/*.svg')
                 }
             }
         }
