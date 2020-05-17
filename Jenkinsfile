@@ -12,13 +12,11 @@ pipeline {
         }
 
         stage('Deploy to development') {
-            expression {
-                echo "BRANCH_NAME is ${env.BRANCH_NAME}"
-                return env.BRANCH_NAME == "development"
-
+            when {
+                branch 'development'
+            }
                 steps {
-                    echo 'Hello people from RD'
-                }
+                    echo 'ls -la'
             }
         }
     }
