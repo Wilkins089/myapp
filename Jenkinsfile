@@ -16,7 +16,7 @@ pipeline {
                 branch 'development'
             }
                 steps {
-                    echo 'ls -la'
+                    sh 'ls -la'
             }
         }
     }
