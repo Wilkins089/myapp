@@ -13,7 +13,7 @@ pipeline {
 
         stage('Deploy to development') {
             when {
-                expression {}
+                expression {
                 echo "BRANCH_NAME is ${env.BRANCH_NAME}"
                 return env.BRANCH_NAME == 'development'
             }
