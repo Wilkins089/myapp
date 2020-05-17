@@ -7,9 +7,7 @@ pipeline {
     stages {
         stage('Deploy to development') {
             when {
-                expression {
-                    return env.BRANCH == 'origin/development';
-                }
+                expression {  env.BRANCH == 'development' }
             }
             steps {
                 sh 'ls -la'
