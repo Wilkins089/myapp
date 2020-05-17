@@ -5,17 +5,23 @@ pipeline {
     }
 
     stages {
-        stage('Simple echo') {
-            steps {
-                echo 'Hello people from the GALAXY'
-            }
-        }
-
         stage('Deploy to development') {
             when {
                 branch 'development'
             }
                 steps {
+                    sh 'ls -la'
+                    sh 'pwd'
+                    sh 'hostname'
+            }
+        }
+        stage('Deploy to master') {
+            when {
+                branch 'master'
+            }
+                steps {
+                    sh 'hostname'
+                    sh 'pwd'
                     sh 'ls -la'
             }
         }
