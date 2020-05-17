@@ -5,13 +5,19 @@ pipeline {
     }
 
     stages {
+        stage('Simple echo') {
+            steps {
+                echo 'Hello people from the GALAXY'
+            }
+        }
+
         stage('Deploy to development') {
             when {
-                expression {env.BRANCH == 'origin/development'}
+                branch 'origin/development'
             }
             steps {
-                sh 'ls -la'
+                sh 'ls'
             }
-         }
+        }
     }
 }
