@@ -5,15 +5,21 @@ pipeline {
     }
 
     stages {
+        stage('Simple echo') {
+            steps {
+                echo 'Hello people from the GALAXY'
+            }
+        }
+
         stage('Deploy to development') {
-            when {
-                expression {
-                    return BRANCH == 'development';
+            expression {
+                echo "BRANCH_NAME is ${env.BRANCH_NAME}"
+                return env.BRANCH_NAME == "development"
+
+                steps {
+                    echo 'Hello people from RD'
                 }
             }
-            steps {
-                sh 'ls -la'
-            }
-         }
+        }
     }
 }
