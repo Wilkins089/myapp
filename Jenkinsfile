@@ -5,17 +5,15 @@ pipeline {
     }
 
     stages {
-        stage('Pulling Files') {
-            steps {
-                sh 'rsync -avz /var/lib/jenkins/workspace/myapp/ wortizdev:/home/ubuntu/myapp/'
-            }
-        }
-        stage('Listing Files') {
-            steps {
-                sshagent(['wortiz']) {
-                    sh 'ssh -tt wortizdev ls -l myapp'
+        stage('Deploy to development') {
+            when {
+                expression {
+                    return BRANCH == 'development';
                 }
             }
-        }
+            steps {
+                sh 'ls -la'
+            }
+         }
     }
 }
