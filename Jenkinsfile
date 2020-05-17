@@ -8,7 +8,7 @@ pipeline {
         stage('Deploy to development') {
             when {
                 expression {
-                    return env.BRANCH == 'development';
+                    return env.BRANCH == 'origin/development';
                 }
             }
             steps {
