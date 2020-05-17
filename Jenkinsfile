@@ -13,7 +13,7 @@ pipeline {
 
         stage('Deploy to development') {
             when {
-                branch 'origin/development'
+                branch 'development'
             }
             steps {
                 sh 'ls'
