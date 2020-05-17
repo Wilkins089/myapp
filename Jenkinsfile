@@ -6,12 +6,13 @@ pipeline {
 
     stages {
         stage('Deploy to development') {
-            when {
-                expression {  env.BRANCH == 'development' }
-            }
+            when (BRANCH_NAME == 'development') { 
+                
             steps {
                 sh 'ls -la'
+                
+               }
             }
-         }
+        }
     }
 }
